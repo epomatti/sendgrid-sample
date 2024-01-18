@@ -21,8 +21,8 @@ async function main() {
     from: process.env.SENDER, // sender address
     to: process.env.TO, // list of receivers
     subject: "Test using SendGrid", // Subject line
-    text: "Hello world!", // plain text body
-    html: "<b>Hello world!</b>"
+    text: "Sample body", // plain text body
+    html: "<b>Sample body</b>"
   }, function (error, info) {
     if (error) {
       console.log(error);
