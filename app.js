@@ -3,10 +3,8 @@
 require('dotenv').config()
 const nodemailer = require("nodemailer");
 
-// async..await is not allowed in global scope, must use a wrapper
 async function main() {
 
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.sendgrid.net',
     port: 587,
@@ -16,12 +14,11 @@ async function main() {
     }
   })
 
-  // send mail with defined transport object
   await transporter.sendMail({
-    from: process.env.SENDER, // sender address
-    to: process.env.TO, // list of receivers
-    subject: "Test using SendGrid", // Subject line
-    text: "Sample body", // plain text body
+    from: process.env.SENDER,
+    to: process.env.TO,
+    subject: "Test using SendGrid",
+    text: "Sample body",
     html: "<b>Sample body</b>"
   }, function (error, info) {
     if (error) {
